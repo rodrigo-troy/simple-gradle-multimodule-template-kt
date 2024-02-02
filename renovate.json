@@ -1,0 +1,30 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:base",
+    ":prHourlyLimitNone",
+    "group:recommended"
+  ],
+  "stabilityDays": 14,
+  "prCreation": "not-pending",
+  "packageRules": [
+    {
+      "groupName": "kotlin",
+      "matchPackagePrefixes": [
+        "org.jetbrains.kotlin:"
+      ]
+    },
+    {
+      "groupName": "dokka",
+      "matchPackagePrefixes": [
+        "org.jetbrains.dokka:"
+      ]
+    },
+    {
+      "groupName": "detekt",
+      "matchPackagePrefixes": [
+        "io.gitlab.arturbosch.detekt:"
+      ]
+    }
+  ]
+}
