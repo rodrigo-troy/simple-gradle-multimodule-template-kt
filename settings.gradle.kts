@@ -1,3 +1,3 @@
-rootProject.name = "gradle-kotlin-spring"
+rootProject.name = "simple-gradle-multimodule"
 include(":message-factory")
 include(":message-dashboard")
