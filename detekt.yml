@@ -35,14 +35,26 @@ console-reports:
   active: true
   exclude:
     - '' # Exclude nothing -> Enable all workarounds
-
+    # - 'KtFileCountProcessor'
+    # - 'PackageCountProcessor'
+    # - 'ClassCountProcessor'
+    # - 'FunctionCountProcessor'
+    # - 'PropertyCountProcessor'
+    # - 'ProjectComplexityProcessor'
+    # - 'ProjectCognitiveComplexityProcessor'
+    # - 'ProjectLLOCProcessor'
+    # - 'ProjectCLOCProcessor'
+    # - 'ProjectLOCProcessor'
+    # - 'ProjectSLOCProcessor'
+    - 'LicenseHeaderLoaderExtension'
 output-reports:
   active: true
   exclude:
     - 'TxtOutputReport'
-  # - 'XmlOutputReport'
-  # - 'HtmlOutputReport'
-  # - 'MdOutputReport'
+    - 'XmlOutputReport'
+    - 'HtmlOutputReport'
+    - 'MdOutputReport'
+    - 'sarif'
 
 comments:
   active: true
