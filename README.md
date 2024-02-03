@@ -10,32 +10,25 @@ individual buildSrc modules. This makes the build very modular and also very cle
 It has the following details:
 
 - Java 17
-- Gradle 8.4
+- Gradle 8.5
   - buildSrc
   - Kotlin DSL
   - Version Catalog (libs.versions.toml)
-  - Gradle Build Scan enabled in CI (Attention! Terms of Service are accepted by the environment variable `BUILD_SCAN_TOS_ACCEPTED` and the scan enabled by the environment variable `CI`)
-- Kotlin 1.9.20
-- Spring Boot 3.1.5
-- Detekt 1.23.3
+- Kotlin 1.9.22
+- Spring Boot 3.2.2
+- Detekt 1.23.5
 - Dokka 1.9.10
 - Spring Dependency-Management
-
-Additionally, I added a POC how Maven Publishing could work. In another project, I got it to work like this without
-Spring boot on Gitlab. Unfortunately it doesn't work with the spring boot plugin in this example yet. But I think it can
-help others to reach their goals.
-
-If there are any questions or suggestions for improvement, issues, discussions and PRs are welcome.
 
 ## Run it!
 
 The factory:
 
-    gradle :message-factory:bootRun
+    gradlew :message-factory:bootRun
 
 The Dashboard:
 
-    gradle :message-dashboard:bootRun
+    gradlew :message-dashboard:bootRun
 
 And now visit <http://localhost:8080/dashboard/Mr.Bean>
 
