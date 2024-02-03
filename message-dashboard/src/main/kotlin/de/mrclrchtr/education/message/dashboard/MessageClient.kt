@@ -1,41 +1,26 @@
 package de.mrclrchtr.education.message.dashboard
 
-import org.springframework.beans.factory.annotation.Value
 import org.springframework.boot.web.client.RestTemplateBuilder
 import org.springframework.core.ParameterizedTypeReference
 import org.springframework.http.HttpMethod
 import org.springframework.stereotype.Component
-import org.springframework.web.util.UriComponentsBuilder
 
-@Suppress("LeakingThis")
 @Component
 class MessageClient(
     templateBuilder: RestTemplateBuilder,
-    @Value("\${mrclrchtr.message.factory.protocol}") val protocol: String,
-    @Value("\${mrclrchtr.message.factory.host}") val host: String,
-    @Value("\${mrclrchtr.message.factory.port}") val port: Int,
+    config: MessageFactoryProperties
 ) {
-
-    private final val uriComponentsBuilder = UriComponentsBuilder.newInstance()
-
-    private val restTemplate = templateBuilder.rootUri(
-        uriComponentsBuilder
-            .scheme(protocol)
-            .host(host)
-            .port(port)
-            .build()
-            .toUriString(),
-    ).build()
+    private val restTemplate =
+        templateBuilder.rootUri("${config.protocol}://${config.host}:${config.port}/${config.path}").build()
 
     fun getMessagesOfUser(username: String): List<Message> {
-        // I would like to use this, but it's not possible because it returns a List<LinkedHashMap>>
-        // return restTemplate.getForObject("/messages/$username") ?: ArrayList()
         val response = restTemplate.exchange(
-            "/messages/$username",
+            "/$username",
             HttpMethod.GET,
             null,
             object : ParameterizedTypeReference<List<Message>>() {},
         )
+
         return response.body ?: ArrayList()
     }
 }
