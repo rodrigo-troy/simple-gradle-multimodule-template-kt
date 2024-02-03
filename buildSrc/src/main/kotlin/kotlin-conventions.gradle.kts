@@ -1,4 +1,4 @@
-import de.mrclrchtr.education.gradle.constant.JDK_VERSION
+import com.rodrigotroy.gradle.constant.JDK_VERSION
 import io.gitlab.arturbosch.detekt.Detekt
 import io.gitlab.arturbosch.detekt.DetektCreateBaselineTask
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
@@ -23,11 +23,13 @@ kotlin {
             JavaLanguageVersion.of(libs.findVersion("jdk").get().toString())
         )
     }
+
     compilerOptions {
         @Suppress("SpellCheckingInspection")
         freeCompilerArgs.add("-Xjsr305=strict")
         allWarningsAsErrors = false
         jvmTarget.set(JvmTarget.valueOf("JVM_${libs.findVersion("jdk").get()}"))
+
         languageVersion.set(
             KotlinVersion.valueOf(
                 "KOTLIN_${
@@ -35,6 +37,7 @@ kotlin {
                 }"
             )
         )
+
         apiVersion.set(
             KotlinVersion.valueOf(
                 "KOTLIN_${
@@ -95,11 +98,11 @@ tasks.withType<DetektCreateBaselineTask>().configureEach {
 afterEvaluate {
     // Workaround for https://detekt.dev/docs/gettingstarted/gradle/#gradle-runtime-dependencies
     // and https://github.com/detekt/detekt/issues/6428#issuecomment-1779291878
-    configurations.matching { it.name == "detekt" }.all {
+   /* configurations.matching { it.name == "detekt" }.all {
         resolutionStrategy.eachDependency {
             if (requested.group == "org.jetbrains.kotlin") {
                 useVersion(libs.findVersion("kotlinForDetekt").get().toString())
             }
         }
-    }
+    }*/
 }
