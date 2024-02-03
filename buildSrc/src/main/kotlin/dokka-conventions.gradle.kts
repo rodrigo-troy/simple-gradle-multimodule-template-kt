@@ -7,5 +7,5 @@ dependencies {
 }
 
 tasks.dokkaJavadoc {
-    outputDirectory.set(buildDir.resolve("javadoc"))
+    outputDirectory.set(project.layout.buildDirectory.dir("javadoc"))
 }
