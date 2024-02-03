@@ -1,5 +1,4 @@
 # Gradle, Kotlin, Spring Skeleton
-[![Run Gradle on PRs](https://github.com/mrclrchtr/gradle-kotlin-spring/actions/workflows/gradle-build-pr.yml/badge.svg)](https://github.com/mrclrchtr/gradle-kotlin-spring/actions/workflows/gradle-build-pr.yml)
 
 Do you already know how to set up a Gradle multi-project / multi-module with Kotlin DSL and Spring Dependency
 Management?
@@ -10,7 +9,7 @@ individual buildSrc modules. This makes the build very modular and also very cle
 It has the following details:
 
 - Java 17
-- Gradle 8.5
+- Gradle 8.6
   - buildSrc
   - Kotlin DSL
   - Version Catalog (libs.versions.toml)
