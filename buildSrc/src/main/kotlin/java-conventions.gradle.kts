@@ -1,4 +1,4 @@
-import de.mrclrchtr.education.gradle.constant.JDK_VERSION
+import com.rodrigotroy.gradle.constant.JDK_VERSION
 
 plugins {
     `java-library`
@@ -9,6 +9,7 @@ java {
     toolchain {
         languageVersion.set(JavaLanguageVersion.of(JDK_VERSION))
     }
+
     withSourcesJar()
     withJavadocJar()
 }
