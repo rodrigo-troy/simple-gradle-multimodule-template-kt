@@ -21,25 +21,16 @@ kotlin {
             JavaLanguageVersion.of(libs.findVersion("jdk").get().toString())
         )
     }
+
     compilerOptions {
         @Suppress("SpellCheckingInspection")
         freeCompilerArgs.add("-Xjsr305=strict")
         allWarningsAsErrors = false
         jvmTarget.set(JvmTarget.valueOf("JVM_${libs.findVersion("jdk").get()}"))
-        languageVersion.set(
-            KotlinVersion.valueOf(
-                "KOTLIN_${
-                    libs.findVersion("kotlin").get().toString().substringBeforeLast(".").replace(".", "_")
-                }"
-            )
-        )
-        apiVersion.set(
-            KotlinVersion.valueOf(
-                "KOTLIN_${
-                    libs.findVersion("kotlin").get().toString().substringBeforeLast(".").replace(".", "_")
-                }"
-            )
-        )
+
+        val kotlinVersion = "KOTLIN_${libs.findVersion("kotlin").get().toString().substringBeforeLast(".").replace(".", "_")}"
+        languageVersion.set(KotlinVersion.valueOf(kotlinVersion))
+        apiVersion.set(KotlinVersion.valueOf(kotlinVersion))
     }
 }
 
