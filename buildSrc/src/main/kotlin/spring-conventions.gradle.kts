@@ -11,6 +11,7 @@ plugins {
     id("org.springframework.boot")
 }
 
+val logger = project.logger
 logger.lifecycle("Enabling Kotlin Spring plugin in module ${project.path}")
 apply(plugin = "org.jetbrains.kotlin.plugin.spring")
 
@@ -22,5 +23,6 @@ apply(plugin = "io.spring.dependency-management")
 
 springBoot {
     // Creates META-INF/build-info.properties for Spring Boot Actuator
+    logger.lifecycle("Enabling build-info task in module ${project.path}")
     buildInfo()
 }
