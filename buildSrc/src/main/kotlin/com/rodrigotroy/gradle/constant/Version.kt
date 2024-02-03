@@ -1,4 +1,4 @@
-package de.mrclrchtr.education.gradle.constant
+package com.rodrigotroy.gradle.constant
 
 // is used to set the target java version
 const val JDK_VERSION = "17"
