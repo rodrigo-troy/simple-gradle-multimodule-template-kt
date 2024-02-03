@@ -9,6 +9,7 @@
     <option name="enableDetekt" value="true" />
     <option name="enableForProjectResult" value="Accepted" />
     <option name="enableFormatting" value="true" />
+    <option name="redirectChannels" value="true" />
   </component>
   <component name="DetektProjectConfiguration">
     <enableDetekt>true</enableDetekt>
